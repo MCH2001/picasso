@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
+
+.App {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between; /* Space out the app name and buttons */
+  align-items: center;
+  padding: 10px 20px;
+  height: 70px;
+  background: linear-gradient(90deg, #ff6f61, #ffb847, #58a6ff, #00ff7f);
+  background-size: 300% 300%;
+  animation: gradientAnimation 5s ease infinite;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.app-name {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
+
+.buttons {
+  display: flex; /* Arrange buttons inline */
+}
+
+.buttons .MuiButton-root:not(:first-child) {
+  margin-left: 20px; /* Space between buttons */
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Layout for the main content: toolbar and canvas */
+.content {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+}
+
+/* Toolbar on the left */
+.toolbar {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 200px;
+  background: linear-gradient(
+    90deg,
+    #ff6f61,
+    #ffb847,
+    #58a6ff,
+    #00ff7f
+  ); /* Same gradient as top-bar */
+  background-size: 300% 300%;
+  animation: gradientAnimation 5s ease infinite; /* Same animation */
+  color: black;
+  box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+  height: 100vh;
+}
+.icon-container {
+  display: flex;
+  gap: 10px; /* Space between brush and eraser icons */
+}
+
+.brush-icon-box,
+.eraser-icon-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease;
+}
+
+.brush-icon-box:hover,
+.eraser-icon-box:hover {
+  background-color: #e0e0e0;
+}
+
+.settings-box {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.icon-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.icon-box.active {
+  border: 3px solid #007bff; /* Increase border thickness and set color */
+  background-color: #e0e0e0;
+}
+
+.settings-box *:not(:last-child) {
+  margin-bottom: 10px; /* Space between settings components */
+}
+/* Canvas area on the right */
+canvas {
+  width: 1500px;
+  height: 700px;
+  border: 1px solid black;
+  margin: 20px;
+}
+
+/* Force a new row for the ellipse button */
+.new-row {
+  flex-basis: 100%;
+}
